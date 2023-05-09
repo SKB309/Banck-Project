@@ -14,11 +14,11 @@ public class CreditCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private long id;
 
 
     @Column(name = "card_number")
-    private String cardNumber;
+    private long cardNumber;
 
     @Column(name = "expiry_date")
     private LocalDate expiryDate;

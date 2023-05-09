@@ -28,23 +28,32 @@ public class AccountService {
     }
 
 
-    public Account createAccount(Integer accountNumber, float balance, Integer customer_id) {
+    public Account createAccount(Integer accountNumber, Double balance, Integer customer_id) {
         Account account = new Account();
         account.setAccountNumber(accountNumber);
-        account.setBalance((int) balance);
+        account.setBalance( balance);
         account.setId(customer_id);
         return accountRepository.save(account);
     }
 
-    public void saveAccount(Integer accountNumber, float balance , Integer customer_id) {
+//    public void saveAccount(Integer accountNumber, Double balance , Integer customer_id) {
+//
+//        Account account = new Account();
+//        account.setAccountNumber(accountNumber);
+//        account.setBalance(balance);
+//        account.setId( customer_id);
+//        accountRepository.save(account);
+//    }
+
+
+    public void saveAccount(Integer accountNumber, Double balance, Integer customer_id) {
 
         Account account = new Account();
         account.setAccountNumber(accountNumber);
-        account.setBalance((int) balance);
+        account.setBalance(balance);
         account.setId( customer_id);
         accountRepository.save(account);
-    }
 
-    public void saveAccount(Account account) {
+
     }
 }

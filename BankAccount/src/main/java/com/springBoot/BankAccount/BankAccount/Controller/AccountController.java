@@ -30,15 +30,15 @@ public class AccountController {
         return accountService.getAllAccounts();
     }
 
-    @PostMapping
-    public void saveAccount(@RequestBody Account account) {
-        accountService.saveAccount(account);
-    }
+//    @PostMapping
+//    public void saveAccount(@RequestBody Account account) {
+//        accountService.saveAccount(account, accountNumber, balance, customer_id);
+//    }
 
 
     @RequestMapping(value = "AccountData" ,method = RequestMethod.POST)
-    public void createAccount(@RequestParam Integer accountNumber, float balance ,  Integer customer_id) throws ParseException {
-        accountService.saveAccount(accountNumber, balance,  customer_id);
+    public void createAccount(@RequestParam  Integer accountNumber, Double balance , Integer customer_id) throws ParseException {
+        accountService.saveAccount(accountNumber, balance, customer_id);
     }
 
 

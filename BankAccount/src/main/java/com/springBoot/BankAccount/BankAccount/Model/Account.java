@@ -19,7 +19,8 @@ public class Account {
     private Integer accountNumber;
 
     @Column(name = "balance")
-    private float balance;
+    private Double balance;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
