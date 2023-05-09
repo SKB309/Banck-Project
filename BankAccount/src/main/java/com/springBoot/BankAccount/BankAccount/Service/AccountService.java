@@ -1,7 +1,9 @@
 package com.springBoot.BankAccount.BankAccount.Service;
 
 import com.springBoot.BankAccount.BankAccount.Model.Account;
+import com.springBoot.BankAccount.BankAccount.Model.Customer;
 import com.springBoot.BankAccount.BankAccount.Reposetry.AccountRepository;
+import com.springBoot.BankAccount.BankAccount.Reposetry.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ public class AccountService {
 
     @Autowired
      AccountRepository accountRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
     public Account getAccountById(Long id) {
         return accountRepository.findById(id).orElse(null);
@@ -51,7 +55,8 @@ public class AccountService {
         Account account = new Account();
         account.setAccountNumber(accountNumber);
         account.setBalance(balance);
-        account.setId( customer_id);
+        Customer customer = customerRepository.findById(customer_id).get();
+        account.setCustomer(customer);
         accountRepository.save(account);
 
 

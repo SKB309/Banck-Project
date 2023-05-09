@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
-import java.time.LocalDate;
 
 @RequestMapping (value = "CreditCard")
 @RestController
@@ -19,7 +18,7 @@ public class CreditCardController {
 
 
     @RequestMapping(value = "CreditCardData" ,method = RequestMethod.POST)
-    public void createCreditCard(@RequestParam long accountNumber, LocalDate expiryDate , Integer customer_id) throws ParseException {
-        creditCardService.saveCardNumber(accountNumber, expiryDate, customer_id);
+    public void createCreditCard(@RequestParam long accountNumber , String ActiveDate, String expiryDate , Integer customer_id) throws ParseException {
+        creditCardService.saveCardNumber(accountNumber , ActiveDate, expiryDate, customer_id);
     }
 }

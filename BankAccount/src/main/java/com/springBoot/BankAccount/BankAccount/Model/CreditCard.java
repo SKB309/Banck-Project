@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Setter
@@ -20,8 +19,11 @@ public class CreditCard {
     @Column(name = "card_number")
     private long cardNumber;
 
+    @Column(name = "Active_date")
+    private String  ActiveDate;
+
     @Column(name = "expiry_date")
-    private LocalDate expiryDate;
+    private String  expiryDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
